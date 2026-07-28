@@ -22,6 +22,7 @@ a { color: inherit; }
 .site-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-left: auto; }
 .site-nav a, .button { display: inline-block; padding: .35rem .65rem; border: 2px outset var(--window); background: var(--window); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
 .site-nav a:hover, .site-nav a:focus-visible, .button:hover:not(:disabled), .button:focus-visible { color: var(--white); background: var(--purple); }
+.site-nav a[aria-current="page"] { color: var(--white); background: var(--purple); }
 .menu-toggle { display: none; font: inherit; }
 .desktop-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; max-width: 1180px; margin: 2rem auto 5rem; padding: 0 1rem; }
 .hero-window { grid-column: span 8; }
@@ -31,6 +32,11 @@ a { color: inherit; }
 .games-window { grid-column: span 7; }
 .contact-window { grid-column: span 5; }
 :where(#about, #experience, #projects, #games, #contact) { scroll-margin-top: 8rem; }
+.is-selected { animation: section-focus .65s ease-out; }
+@keyframes section-focus {
+  from { outline: 4px solid #ffdf00; outline-offset: 4px; filter: brightness(1.12); }
+  to { outline: 0 solid transparent; outline-offset: 0; filter: brightness(1); }
+}
 .window-content { padding: 1.25rem; }
 .hero-content { min-height: 22rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
 .eyebrow, .timeline-date { color: var(--purple); font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
@@ -83,4 +89,7 @@ h2 { margin-bottom: .35rem; }
   .high-score-box ol { grid-template-columns: 1fr 1fr; }
 }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .is-selected { animation: none; }
+}
