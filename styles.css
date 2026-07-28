@@ -9,7 +9,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 8rem; }
 body { margin: 0; min-width: 320px; color: var(--ink); background: var(--desktop); font-family: "Courier New", monospace; line-height: 1.5; }
 a { color: inherit; }
 .window-frame { border: 2px solid #000; border-top-color: var(--white); border-left-color: var(--white); background: var(--window); box-shadow: 3px 3px #000; }
@@ -30,6 +30,7 @@ a { color: inherit; }
 .projects-window { grid-column: span 7; }
 .games-window { grid-column: span 7; }
 .contact-window { grid-column: span 5; }
+:where(#about, #experience, #projects, #games, #contact) { scroll-margin-top: 8rem; }
 .window-content { padding: 1.25rem; }
 .hero-content { min-height: 22rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
 .eyebrow, .timeline-date { color: var(--purple); font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
@@ -66,6 +67,8 @@ h2 { margin-bottom: .35rem; }
 .taskbar { position: fixed; right: 0; bottom: 0; left: 0; display: flex; justify-content: space-between; gap: 1rem; padding: .35rem .75rem; border-top: 2px solid var(--white); background: var(--window); font-size: .8rem; }
 
 @media (max-width: 760px) {
+  html { scroll-padding-top: 11rem; }
+  :where(#about, #experience, #projects, #games, #contact) { scroll-margin-top: 11rem; }
   .site-header { top: .5rem; margin: .5rem; }
   .header-body { flex-wrap: wrap; justify-content: space-between; }
   .menu-toggle { display: inline-block; padding: .35rem .65rem; border: 2px outset var(--window); background: var(--window); font-weight: 700; }
