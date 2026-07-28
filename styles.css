@@ -46,10 +46,22 @@ h2 { margin-bottom: .35rem; }
 .project-list h3 { margin-bottom: .15rem; }
 .project-list p { margin-bottom: 0; }
 .file-icon { color: var(--purple); font-size: 1.5rem; }
-.game-placeholder { min-height: 12rem; background: #080808; color: #fff; }
-.game-placeholder .eyebrow { color: #00ff66; }
-.game-placeholder h2 { color: #ffdf00; }
-.game-placeholder .button:disabled { cursor: not-allowed; opacity: .6; }
+.game-panel { background: #080808; color: #fff; }
+.game-toolbar, .game-stats, .game-actions, .touch-controls, .touch-controls > div { display: flex; align-items: center; gap: .5rem; }
+.game-toolbar { justify-content: space-between; margin-bottom: .75rem; color: #ffdf00; }
+.game-toolbar strong { display: block; font-size: 1.2rem; }
+#game-status { display: block; color: #00ff66; font-size: .75rem; }
+.game-stats { color: #fff; font-size: .8rem; }
+.game-stats b { color: #ffdf00; }
+#snake-canvas { display: block; width: min(100%, 420px); height: auto; margin: 0 auto 1rem; border: 3px inset #c0c0c0; background: #07131a; image-rendering: pixelated; }
+.game-actions { flex-wrap: wrap; margin-bottom: .75rem; }
+.game-actions .button, .touch-controls .button { color: #111; }
+.touch-controls { flex-direction: column; justify-content: center; margin-bottom: .75rem; }
+.touch-controls .button { min-width: 2.5rem; min-height: 2.5rem; padding: .25rem .6rem; touch-action: manipulation; }
+.game-help { color: #b7ffc9; font-size: .78rem; }
+.high-score-box { padding: .6rem; border: 1px solid #555; color: #fff; font-size: .8rem; }
+.high-score-box ol { display: grid; grid-template-columns: repeat(5, 1fr); gap: .3rem; margin: .4rem 0 0; padding-left: 1.5rem; }
+.high-score-box li { color: #ffdf00; }
 .text-link { color: var(--navy); font-weight: 700; }
 .taskbar { position: fixed; right: 0; bottom: 0; left: 0; display: flex; justify-content: space-between; gap: 1rem; padding: .35rem .75rem; border-top: 2px solid var(--white); background: var(--window); font-size: .8rem; }
 
@@ -64,6 +76,8 @@ h2 { margin-bottom: .35rem; }
   .hero-window, .about-window, .experience-window, .projects-window, .games-window, .contact-window { grid-column: auto; }
   h1 { font-size: clamp(2.2rem, 13vw, 4rem); }
   .taskbar { font-size: .7rem; }
+  .game-toolbar { align-items: flex-start; flex-direction: column; }
+  .high-score-box ol { grid-template-columns: 1fr 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
