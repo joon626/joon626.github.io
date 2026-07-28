@@ -1,0 +1,69 @@
+:root {
+  --desktop: #008080;
+  --window: #c0c0c0;
+  --ink: #111;
+  --navy: #000080;
+  --white: #fff;
+  --shadow: #808080;
+  --purple: #5b2a86;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; color: var(--ink); background: var(--desktop); font-family: "Courier New", monospace; line-height: 1.5; }
+a { color: inherit; }
+.window-frame { border: 2px solid #000; border-top-color: var(--white); border-left-color: var(--white); background: var(--window); box-shadow: 3px 3px #000; }
+.title-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .25rem .45rem; color: var(--white); background: var(--navy); font-weight: 700; }
+.window-controls { white-space: nowrap; letter-spacing: .2rem; }
+.site-header { position: sticky; top: 1rem; z-index: 5; max-width: 1180px; margin: 1rem auto 0; }
+.header-body { display: flex; align-items: center; gap: 1.5rem; padding: .8rem 1rem; }
+.brand { color: var(--purple); font-size: 1.4rem; font-weight: 900; text-decoration: none; }
+.brand span { color: var(--navy); }
+.site-nav { display: flex; flex-wrap: wrap; gap: .5rem; margin-left: auto; }
+.site-nav a, .button { display: inline-block; padding: .35rem .65rem; border: 2px outset var(--window); background: var(--window); font: inherit; font-weight: 700; text-decoration: none; cursor: pointer; }
+.site-nav a:hover, .site-nav a:focus-visible, .button:hover:not(:disabled), .button:focus-visible { color: var(--white); background: var(--purple); }
+.menu-toggle { display: none; font: inherit; }
+.desktop-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1.25rem; max-width: 1180px; margin: 2rem auto 5rem; padding: 0 1rem; }
+.hero-window { grid-column: span 8; }
+.about-window { grid-column: span 4; }
+.experience-window { grid-column: span 5; }
+.projects-window { grid-column: span 7; }
+.games-window { grid-column: span 7; }
+.contact-window { grid-column: span 5; }
+.window-content { padding: 1.25rem; }
+.hero-content { min-height: 22rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.eyebrow, .timeline-date { color: var(--purple); font-size: .78rem; font-weight: 700; letter-spacing: .08em; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 13ch; margin-bottom: 1rem; font-size: clamp(2.2rem, 7vw, 5.6rem); line-height: .95; }
+h1 span { color: var(--navy); }
+h2 { margin-bottom: .35rem; }
+.lead { max-width: 55ch; }
+.muted { color: #444; }
+.tag-row { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag-row span { padding: .15rem .35rem; border: 1px solid var(--shadow); background: #e0e0e0; font-size: .8rem; }
+.project-list article { display: flex; gap: .75rem; padding: .6rem 0; border-bottom: 1px dotted var(--shadow); }
+.project-list article:last-child { border-bottom: 0; }
+.project-list h3 { margin-bottom: .15rem; }
+.project-list p { margin-bottom: 0; }
+.file-icon { color: var(--purple); font-size: 1.5rem; }
+.game-placeholder { min-height: 12rem; background: #080808; color: #fff; }
+.game-placeholder .eyebrow { color: #00ff66; }
+.game-placeholder h2 { color: #ffdf00; }
+.game-placeholder .button:disabled { cursor: not-allowed; opacity: .6; }
+.text-link { color: var(--navy); font-weight: 700; }
+.taskbar { position: fixed; right: 0; bottom: 0; left: 0; display: flex; justify-content: space-between; gap: 1rem; padding: .35rem .75rem; border-top: 2px solid var(--white); background: var(--window); font-size: .8rem; }
+
+@media (max-width: 760px) {
+  .site-header { top: .5rem; margin: .5rem; }
+  .header-body { flex-wrap: wrap; justify-content: space-between; }
+  .menu-toggle { display: inline-block; padding: .35rem .65rem; border: 2px outset var(--window); background: var(--window); font-weight: 700; }
+  .site-nav { display: none; flex-basis: 100%; margin-left: 0; }
+  .site-nav.is-open { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .site-nav a { text-align: center; }
+  .desktop-grid { grid-template-columns: 1fr; margin-top: 1.5rem; padding: 0 .75rem; }
+  .hero-window, .about-window, .experience-window, .projects-window, .games-window, .contact-window { grid-column: auto; }
+  h1 { font-size: clamp(2.2rem, 13vw, 4rem); }
+  .taskbar { font-size: .7rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
